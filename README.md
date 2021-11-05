@@ -5,7 +5,7 @@ The Started code provided the CSS and most of the HTML code.
 
 I was in charge of providing the necessary adjustments for the HTML and creating and linking the JavaScript code to the HTML.
 
-##Description
+## Description
 
 <img src="./develop/work-day-scheduler.png" alt="the user interface of the Work day Scheduler page">
 
