@@ -38,7 +38,13 @@ function saveTask(event) {
     var hour = $(event.target).closest(".time-block").text();
     var task = $(event.target).siblings(".description").val();
 
+    if (!task) {
+        alert("No task inserted!")
+    }
+else {
     localStorage.setItem(hour,task);
+}
+    
     
 }
 //eventListener to save the event to the local storage
@@ -46,19 +52,20 @@ $(".saveBtn").on("click", saveTask);
 
 //update for the following day
 function auditTask() {
-    var time = moment(newDay).set("hour",19);
+    var time = moment(newDay, "L").set("hour",19);
 
     if (moment().isAfter(time)) {
         localStorage.clear();
         location.reload();
     }
+    
 }
 
 setInterval(function(){
     auditTask();
     updateTime();
 
-},(1000*60)*60);
+},(1000)*60);
 
 
 
