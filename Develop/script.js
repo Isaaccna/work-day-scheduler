@@ -3,11 +3,12 @@ var newDay = moment().format("dddd. MMMM, Do");
 var currentDay = $("#currentDay")
 .text(newDay);
 
+
 function load(){
  //load events when refresh the page
  $(".time-block").each(function() {
-    var timeTex = $(this).text().trim();
-    $(this).children(".description").text(localStorage.getItem(timeTex));
+    var timeId = $(this).attr("id");
+    $(this).children(".description").text(localStorage.getItem(timeId));
 
 })
 }
@@ -35,14 +36,14 @@ function updateTime() {
 
 function saveTask(event) {
 
-    var hour = $(event.target).closest(".time-block").text();
+    var hour = $(event.target).closest(".time-block").attr("id");
     var task = $(event.target).siblings(".description").val();
 
     if (!task) {
         alert("No task inserted!")
     }
 else {
-    localStorage.setItem(hour,task);
+    localStorage.setItem(hour, task);
 }
     
     
